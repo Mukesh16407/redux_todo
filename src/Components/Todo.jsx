@@ -30,7 +30,9 @@ export const Todo = () => {
     }
     // dlt function
     const deleteItem=(id)=>{
+      
       dispatch(Remove(id))
+
       setDltTask(true)
    
     }
