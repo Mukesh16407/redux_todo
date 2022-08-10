@@ -3,13 +3,24 @@ import React, { useState } from 'react';
 import { Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { Todo } from './Todo';
+import {Add} from '../Redux/Action';
+import { useDispatch } from 'react-redux';
+
 
 export const Home=()=>{
    
      const [data, setData] = useState("");
+     
+     const dispatch = useDispatch();
+     
+     const addData =()=>{
+      dispatch(Add(data))
+      setData("")
+     }
 
      const handleOnChange=(e)=>{
       setData(e.target.value)
+      
      }
     
     return(
@@ -24,7 +35,8 @@ export const Home=()=>{
                         className='form-control'
                         name='task'
                         value={data}/>
-                        <Button 
+                        <Button
+                        onClick={()=>addData()} 
                         variant='contained' 
                         className='mx-2'
                        style={{background:"#ee5253"}} >
