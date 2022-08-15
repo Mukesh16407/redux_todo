@@ -12,8 +12,9 @@ export const Todo = () => {
 
   const {user_data} =useSelector((state)=> state.todoReducer);
   
-  const {dltTask, setDltTask} = useContext(DeleteContext);
   
+  const {setDltTask} = useContext(DeleteContext);
+
   const dispatch = useDispatch();
    
     const [showEye,setShowEye] = useState(false);
